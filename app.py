@@ -53,10 +53,5 @@ def create_item(name):
             return new_item, 201
     return {"message": "Store not found"}, 404
 
-@app.delete("/store/<string:name>")
-def delete_store(name):
-    for store in stores:
-        if store["name"] == name:
-            store.remove(name)
-            return {"message": "Store was deleted"}, 200
-    return {"message": "Store not found"}, 404
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=3000)
